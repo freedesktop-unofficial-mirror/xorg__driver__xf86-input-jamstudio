@@ -1,4 +1,4 @@
-.\" $XFree86: xc/programs/Xserver/hw/xfree86/input/jamstudio/js_x.man,v 1.2 2003/02/24 03:24:15 dawes Exp $ 
+.\" $XFree86$ 
 .\" shorthand for double quote that works everywhere.
 .ds q \N'34'
 .TH JS_X __drivermansuffix__ __vendorversion__
