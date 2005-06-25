@@ -322,7 +322,7 @@ xf86JS_XInit(InputDriverPtr drv, IDevPtr dev, int flags)
    return (local);
 }
 
-InputDriverRec JAMSTUDIO =
+_X_EXPORT InputDriverRec JAMSTUDIO =
       { 1, "js_x", NULL, xf86JS_XInit, xf86JS_XUnInit, NULL, 0 };
 
 #ifdef XFree86LOADER
@@ -353,7 +353,8 @@ static XF86ModuleVersionInfo xf86JS_XVersionRec = {
    {0, 0, 0, 0}		/* signature, to be patched into the file by a tool */
 };
 
-XF86ModuleData js_xModuleData = { &xf86JS_XVersionRec,
+_X_EXPORT XF86ModuleData js_xModuleData = {
+   &xf86JS_XVersionRec,
    xf86JS_XPlug,
    xf86JS_XUnplug
 };
