@@ -27,7 +27,7 @@
 #if XORG_VERSION_CURRENT >= XF86_VERSION_NUMERIC(3,9,0,0,0)
 #define XFREE86_V4 1
 #endif
-#include "misc.h"
+#include <X11/misc.h>
 #include "xf86.h"
 #include "xf86_ansic.h"
 #include "xf86_OSproc.h"
