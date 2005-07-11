@@ -22,6 +22,10 @@
  */
 /* $XFree86: xc/programs/Xserver/hw/xfree86/input/jamstudio/js_x.c,v 1.3tsi Exp $ */
 
+#ifdef HAVE_CONFIG_H
+#include "config.h"
+#endif
+
 #include <sys/types.h>
 #include "xf86Version.h"
 #if XORG_VERSION_CURRENT >= XF86_VERSION_NUMERIC(3,9,0,0,0)
