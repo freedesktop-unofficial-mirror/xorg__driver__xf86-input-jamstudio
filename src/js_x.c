@@ -192,7 +192,10 @@ xf86JS_XProc(DeviceIntPtr pJS_X, int operation)
 	 return !Success;
       if (InitProximityClassDeviceStruct(pJS_X) == FALSE)
 	 return !Success;
-      if (InitValuatorClassDeviceStruct(pJS_X, nbaxes, xf86GetMotionEvents,
+      if (InitValuatorClassDeviceStruct(pJS_X, nbaxes,
+#if GET_ABI_MAJOR(ABI_XINPUT_VERSION) < 3
+					xf86GetMotionEvents,
+#endif
 					local->history_size,
 					Absolute | OutOfProximity) == FALSE)
 	 return !Success;
