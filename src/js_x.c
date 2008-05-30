@@ -148,8 +148,13 @@ xf86JS_XConvert(LocalDevicePtr local, int first, int num, int v0, int v1,
    int width, height;
    int deltaX, deltaY;
 
+#if GET_ABI_MAJOR(ABI_XINPUT_VERSION) == 0
    width = miPointerCurrentScreen()->width;
    height = miPointerCurrentScreen()->height;
+#else
+   width = miPointerGetScreen(local->dev)->width;
+   height = miPointerGetScreen(local->dev)->height;
+#endif
 /*
 deltaX=(float)width/priv->jsxMaxX; deltaY=(float)height/priv->jsxMaxY;
 */
