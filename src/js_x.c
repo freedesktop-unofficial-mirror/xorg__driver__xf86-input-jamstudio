@@ -28,9 +28,6 @@
 
 #include <sys/types.h>
 #include "xf86Version.h"
-#if XORG_VERSION_CURRENT >= XF86_VERSION_NUMERIC(3,9,0,0,0)
-#define XFREE86_V4 1
-#endif
 #include "misc.h"
 #include "xf86.h"
 #include "xf86_OSproc.h"
@@ -38,11 +35,10 @@
 #include "exevents.h"		/* Needed for InitValuator/Proximity stuff */
 #include "mipointer.h"
 
-#ifdef XFree86LOADER
 #include "xf86Module.h"
-#endif
 #include <errno.h>
 #include <string.h>
+#include <unistd.h>
 
 #define JSX_XCOORD	65584
 #define JSX_YCOORD	65585
@@ -50,8 +46,6 @@
 #define JSX_BTN		852034
 
 #define SYSCALL(call) while(((call) == -1) && (errno == EINTR))
-
-#ifdef XFREE86_V4
 
 struct hiddev_event
 {
@@ -333,8 +327,6 @@ xf86JS_XInit(InputDriverPtr drv, IDevPtr dev, int flags)
 _X_EXPORT InputDriverRec JAMSTUDIO =
       { 1, "js_x", NULL, xf86JS_XInit, xf86JS_XUnInit, NULL, 0 };
 
-#ifdef XFree86LOADER
-
 static void
 xf86JS_XUnplug(pointer p)
 {
@@ -366,5 +358,3 @@ _X_EXPORT XF86ModuleData js_xModuleData = {
    xf86JS_XPlug,
    xf86JS_XUnplug
 };
-#endif
-#endif
